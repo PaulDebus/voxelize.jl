@@ -1,0 +1,19 @@
+name = "jlVoxel"
+uuid = "19ee0073-564e-4487-805a-a57e4f8bc79d"
+authors = ["Paul Debus <paul.debus@uni-weimar.de>"]
+version = "0.1.0"
+
+[deps]
+AbstractPlotting = "537997a7-5e4e-5d89-9595-2241ea00577e"
+CoordinateTransformations = "150eb455-5306-5404-9cee-2592286d6298"
+CuArrays = "3a865a2d-5b23-5a0f-bc46-62713ec82fae"
+DataStructures = "864edb3b-99cc-5e75-8d2d-829cb0a9cfe8"
+Distributions = "31c24e10-a181-5473-b8eb-7969acd0382f"
+FileIO = "5789e2e9-d7fb-5bc7-8068-2c6fae9b9549"
+Flux = "587475ba-b771-5e3f-ad9e-33799f191a9c"
+GeometryBasics = "5c1252a2-5f33-56bf-86c9-59e7332b4326"
+Gym = "56b9baea-2481-11e9-37ae-75904354ad8c"
+Makie = "ee78f7c6-11fb-53f2-987a-cfe4a2b5a57a"
+MeshIO = "7269a6da-0436-5bbc-96c2-40638cbb6118"
+Rotations = "6038ab10-8711-5258-84ad-4b1120ba62dc"
+Zygote = "e88e6eb3-aa80-5325-afca-941959d7151f"
