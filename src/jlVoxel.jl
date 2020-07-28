@@ -2,8 +2,9 @@ module jlVoxel
 using GeometryBasics
 using CoordinateTransformations
 using Rotations
+using AbstractPlotting
 
-greet() = print("Hello World!")
+export voxelize, voxels
 
 struct VoxelGrid
     voxels::Array{Int8,3}
@@ -30,7 +31,7 @@ end
     -----------
     VoxelGrid instance representing the voxelized mesh.
 """
-function voxelize(mesh, pitch::Float64, max_iter=10, edge_factor=2.0)::VoxelGrid
+function voxelize(mesh, pitch::Float64; max_iter=10, edge_factor=2.0)::VoxelGrid
     max_edge = pitch / edge_factor
     v = coordinates(mesh)
     low = ones(3)*typemax(Float64)
@@ -52,6 +53,10 @@ function voxelize(mesh, pitch::Float64, max_iter=10, edge_factor=2.0)::VoxelGrid
         voxels[p[1], p[2], p[3]] = 1
     end
     VoxelGrid(voxels, pitch, offset)
+end
+
+function voxels(grid::VoxelGrid)
+    volume(grid.voxels, algorithm=:iso, isovalue=1, isorange=0.5)
 end
 
 end # module
