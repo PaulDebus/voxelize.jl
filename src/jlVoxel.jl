@@ -38,12 +38,24 @@ function voxelize(mesh::GeometryBasics.Mesh, pitch::Float64; max_iter=10, edge_f
     boundingbox = Rect(v)
 
     distance(p1::Point, p2::Point) = norm(p1 - p2)
+    function split_edge!(new, p1, p2, length)
+        if distance(p1, p2) > length
+            new_p = (p1 + p2) / 2
+            push!(new, new_p)
+            split_edge!(new, p1, new_p, length)
+            split_edge!(new, p2, new_p, length)
+        end
+    end
     for triangle in mesh
-        nothing 
+        for edge in  [(1, 2) (2, 3) (3, 1)]
+            p1 = triangle[edge[1]]
+            p2 = triangle[edge[2]]
+            split_edge!(v, p1, p2, max_edge)
+        end
     end
     offset = minimum(boundingbox)
     trans = Translation(-offset)
-    
+
     grid_size = ceil.(Int, boundingbox.widths ./ pitch)
     voxels = zeros(Int8, grid_size...)
     for point in v
