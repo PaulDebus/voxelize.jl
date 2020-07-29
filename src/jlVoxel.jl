@@ -37,12 +37,15 @@ function voxelize(mesh::GeometryBasics.Mesh, pitch::Float64; max_iter=10, edge_f
     v = coordinates(mesh)
     boundingbox = Rect(v)
 
+    distance(p1::Point, p2::Point) = norm(p1 - p2)
+    for triangle in mesh
+        nothing 
+    end
     offset = minimum(boundingbox)
     trans = Translation(-offset)
-
+    
     grid_size = ceil.(Int, boundingbox.widths ./ pitch)
     voxels = zeros(Int8, grid_size...)
-    distance(p1::Point, p2::Point) = norm(p1 - p2)
     for point in v
         p = floor.(Int, trans(point) ./ pitch .+ 1)
         voxels[p...] = 1
