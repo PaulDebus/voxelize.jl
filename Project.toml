@@ -1,4 +1,4 @@
-name = "jlVoxel"
+name = "Voxelize"
 uuid = "19ee0073-564e-4487-805a-a57e4f8bc79d"
 authors = ["Paul Debus <paul.debus@uni-weimar.de>"]
 version = "0.1.0"
@@ -6,9 +6,4 @@ version = "0.1.0"
 [deps]
 AbstractPlotting = "537997a7-5e4e-5d89-9595-2241ea00577e"
 CoordinateTransformations = "150eb455-5306-5404-9cee-2592286d6298"
-FileIO = "5789e2e9-d7fb-5bc7-8068-2c6fae9b9549"
-GLMakie = "e9467ef8-e4e7-5192-8a1a-b1aee30e663a"
 GeometryBasics = "5c1252a2-5f33-56bf-86c9-59e7332b4326"
-Makie = "ee78f7c6-11fb-53f2-987a-cfe4a2b5a57a"
-MeshIO = "7269a6da-0436-5bbc-96c2-40638cbb6118"
-Rotations = "6038ab10-8711-5258-84ad-4b1120ba62dc"
